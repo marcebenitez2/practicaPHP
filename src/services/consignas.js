@@ -29,4 +29,24 @@ export const consignas = [
       "3.putear al marvo",
     ],
   },
+  {
+    titulo: "Ejercicio 4",
+    consigna:
+      "Escribir un programa en PHP que cargue en un array las notas de 30 alumnos de un curso (hacerlo con números al azar entre 0 y 10). Luego deberá armar una función llamada Abanderado que devolverá la nota de los 3 mejores alumnos. Fuera de la función, deberá imprimir las 3 notas y la ubicación de cada una dentro del array.",
+    resolucion: [
+      "1. Chupar pija",
+      "2. comerme los huevos",
+      "3.putear al marvo",
+    ],
+  },
+  {
+    titulo: "Ejercicio 5/Practica 3",
+    consigna:
+      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+    resolucion: [
+      "1. Chupar pija",
+      "2. comerme los huevos",
+      "3.putear al marvo",
+    ],
+  },
 ];
