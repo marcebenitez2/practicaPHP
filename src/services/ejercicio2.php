@@ -11,7 +11,7 @@ function planeta_con_mas_particulasH($array)
     for ($i = 0; $i < count($array); $i++) {
         if ($array[$i]['valor'] > $mayor) {
             $mayor = $array[$i]['valor'];
-            $nombre_mayor = $array[$i]['planeta']; // Corrección aquí
+            $nombre_mayor = $array[$i]['planeta'];
         }
     }
 
@@ -26,7 +26,7 @@ function planeta_con_menos_particulasH($array)
     for ($i = 0; $i < count($array); $i++) {
         if ($array[$i]['valor'] < $menor) {
             $menor = $array[$i]['valor'];
-            $nombre_menor = $array[$i]['planeta']; // Corrección aquí
+            $nombre_menor = $array[$i]['planeta'];
         }
     }
 
@@ -36,7 +36,7 @@ function planeta_con_menos_particulasH($array)
 function promedio_planetas($array)
 {
     if (count($array) === 0) {
-        return 0; // O cualquier otro valor predeterminado si el array está vacío
+        return 0; 
     }
 
     $promedio = 0;
@@ -68,10 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         header('Content-Type: application/json');
 
-        // Enviar la respuesta JSON
+
         echo $respuesta_json;
     } else {
-        // Manejar el caso en el que no se proporciona 'valoresArray' en el JSON.
+
     }
 }
 ?>
