@@ -6,7 +6,7 @@ import Ejercicio2 from "./pages/ejercicio2";
 import Ejercicio3 from './pages/ejercicio3'
 import Ejercicio4 from "./pages/ejercicio4";
 import Ejercicio5 from "./pages/ejercicio5";
-
+// List para hostear
 function App() {
   return (
     <main>
