@@ -7,16 +7,17 @@ import xampp from './assets/xampp.svg'
 import phpGrande from './assets/PHP-logo.png'
 import sqlgrande from './assets/mysql.png'
 import arrow from './assets/btn-arrow.png'
+import GrillaConsignas from "./components/grillaConsignas";
 
 function home() {
   return (
-    <main class="w-full h-screen bg-[#222334] flex flex-col px-40 xln:px-20 mdn:px-5">
-      <section class="w-full flex flex-col pt-40 gap-12 2xln:pt-20 lgn:gap-0 mdn:pt-5">
-        <div class="flex gap-40 lgn:gap-10 mdn:flex-col">
-          <div class="text-white w-full flex flex-col gap-10 mdn:items-center">
-            <div class="flex flex-col gap-5">
-              <h1 class="text-7xl font-semibold mdn:text-center">Practica</h1>
-              <div class="text-xl mdn:text-base mdn:text-center">
+    <main className="w-full min-h-screen h-full bg-[#222334] flex flex-col px-40 xln:px-20 mdn:px-5">
+      <section className="w-full h-screen flex flex-col pt-40 2xln:pt-20 lgn:gap-0 mdn:pt-5 justify-between">
+        <div className="flex gap-40 lgn:gap-10 mdn:flex-col">
+          <div className="text-white w-full flex flex-col gap-10 mdn:items-center">
+            <div className="flex flex-col gap-5">
+              <h1 className="text-7xl font-semibold mdn:text-center">Practica</h1>
+              <div className="text-xl mdn:text-base mdn:text-center">
                 <p>
                   Esta práctica consta de 11 ejercicios dictados por el Prof.
                   Dante Rosselli. Exploraremos los fundamentos de la
@@ -32,35 +33,36 @@ function home() {
                 </p>
               </div>
             </div>
-            <div class="flex flex-col gap-4">
-              <h2 class="text-cyan-400 text-3xl font-semibold">
+            <div className="flex flex-col gap-4">
+              <h2 className="text-cyan-400 text-3xl font-semibold">
                 Tecnologias usadas:
               </h2>
-              <aside class="flex text-xl gap-4">
-                <img src={javascript} class="w-10" />
-                <img src={tailwind} class="w-10" />
-                <img src={sql} class="w-10" />
-                <img src={php} class="w-10" />
-                <img src={xampp} class="w-10" />
+              <aside className="flex text-xl gap-4">
+                <img src={javascript} className="w-10" />
+                <img src={tailwind} className="w-10" />
+                <img src={sql} className="w-10" />
+                <img src={php} className="w-10" />
+                <img src={xampp} className="w-10" />
               </aside>
             </div>
           </div>
-          <div class="w-full flex items-center 2xln:flex-col mdn:flex-row mdn:justify-center">
+          <div className="w-full flex items-center 2xln:flex-col mdn:flex-row mdn:justify-center">
             <img
               src={phpGrande}
-              class="w-96 mdn:w-72 smn:hidden animate-wiggle animate-infinite"
+              className="w-96 mdn:w-72 smn:hidden animate-wiggle animate-infinite"
             />
             <img
               src={sqlgrande}
-              class="w-80 mdn:w-72 smn:hidden animate-wiggle animate-infinite"
+              className="w-80 mdn:w-72 smn:hidden animate-wiggle animate-infinite"
             />
           </div>
         </div>
         <img
           src={arrow}
-          class="w-28 m-auto mt-12 animate-bounce mdn:w-20"
+          className="w-28 m-auto mt-52 animate-bounce mdn:w-20"
         />
       </section>
+      <GrillaConsignas/>
     </main>
   );
 }
