@@ -11,7 +11,7 @@ import GrillaConsignas from "./components/grillaConsignas";
 
 function home() {
   return (
-    <main className="w-full min-h-screen h-full bg-[#222334] flex flex-col px-40 xln:px-20 mdn:px-5 ">
+    <main className="w-full min-h-screen h-full bg-[#222334] flex flex-col px-40 xln:px-20 mdn:px-5 gap-56 ">
       <section className="w-full h-screen flex flex-col pt-40 2xln:pt-20 lgn:gap-0 mdn:pt-5 ">
         <div className="flex gap-40 lgn:gap-10 mdn:flex-col">
           <div className="text-white w-full flex flex-col gap-10 mdn:items-center">
