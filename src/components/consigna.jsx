@@ -23,8 +23,8 @@ function Consigna({ x }) {
         <div className="w-full pl-40 lgn:pl-10">
           <h2 className="text-xl text-cyan-400">Resolucion</h2>
           <ul>
-            {x.resolucion.map((x) => (
-              <li>{x}</li>
+            {x.resolucion.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </div>

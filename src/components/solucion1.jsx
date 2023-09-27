@@ -27,7 +27,7 @@ function Solucion1() {
           type="number"
           min="1"
           required
-          className="h-12 bg-[#222334] border px-4"
+          className="h-12 bg-[#222334] border px-4 text-white"
           onChange={(e) => setNumero(e.target.value)}
         />
         <button
