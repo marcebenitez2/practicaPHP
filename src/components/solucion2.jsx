@@ -77,7 +77,7 @@ function Solucion2() {
           <img src={mercurio} alt="Mercurio" />
           <label data-planet="Mercurio">Mercurio</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Mercurio", e.target.value)}
@@ -87,7 +87,7 @@ function Solucion2() {
           <img src={venus} alt="Venus" />
           <label data-planet="Venus">Venus</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Venus", e.target.value)}
@@ -97,7 +97,7 @@ function Solucion2() {
           <img src={tierra} alt="Tierra" />
           <label data-planet="Tierra">Tierra</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Tierra", e.target.value)}
@@ -107,7 +107,7 @@ function Solucion2() {
           <img src={marte} alt="Marte" />
           <label data-planet="Marte">Marte</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8 text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Marte", e.target.value)}
@@ -117,7 +117,7 @@ function Solucion2() {
           <img src={jupiter} alt="Jupiter" />
           <label data-planet="Jupiter">Jupiter</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8 text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Jupiter", e.target.value)}
@@ -127,7 +127,7 @@ function Solucion2() {
           <img src={saturno} alt="Saturno" />
           <label data-planet="Saturno">Saturno</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Saturno", e.target.value)}
@@ -137,7 +137,7 @@ function Solucion2() {
           <img src={urano} alt="Urano" />
           <label data-planet="Urano">Urano</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Urano", e.target.value)}
@@ -147,7 +147,7 @@ function Solucion2() {
           <img src={neptuno} alt="Neptuno" />
           <label data-planet="Neptuno">Neptuno</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Neptuno", e.target.value)}
@@ -157,7 +157,7 @@ function Solucion2() {
           <img src={pluton} alt="Pluton" />
           <label data-planet="Pluton">Pluton</label>
           <input
-            className="bg-[#222334] border h-8 px"
+            className="bg-[#222334] border h-8  text-white"
             type="number"
             required
             onChange={(e) => agarrarValores("Pluton", e.target.value)}
