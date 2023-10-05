@@ -1,13 +1,14 @@
 import React from "react";
-import javascript from './assets/javascript.svg'
-import tailwind from './assets/tailwind.svg'
-import sql from './assets/sql.svg'
-import php from './assets/php.svg'
-import xampp from './assets/xampp.svg'
-import phpGrande from './assets/PHP-logo.png'
-import sqlgrande from './assets/mysql.png'
-import arrow from './assets/btn-arrow.png'
+import javascript from "./assets/javascript.svg";
+import tailwind from "./assets/tailwind.svg";
+import sql from "./assets/sql.svg";
+import php from "./assets/php.svg";
+import xampp from "./assets/xampp.svg";
+import phpGrande from "./assets/PHP-logo.png";
+import sqlgrande from "./assets/mysql.png";
+import arrow from "./assets/btn-arrow.png";
 import GrillaConsignas from "./components/grillaConsignas";
+import { conbd, consignas } from "./services/consignas";
 
 function home() {
   return (
@@ -16,7 +17,9 @@ function home() {
         <div className="flex gap-40 lgn:gap-10 mdn:flex-col">
           <div className="text-white w-full flex flex-col gap-10 mdn:items-center">
             <div className="flex flex-col gap-5">
-              <h1 className="text-7xl font-semibold mdn:text-center">Practica</h1>
+              <h1 className="text-7xl font-semibold mdn:text-center">
+                Practica
+              </h1>
               <div className="text-xl mdn:text-base mdn:text-center">
                 <p>
                   Esta práctica consta de 11 ejercicios dictados por el Prof.
@@ -62,7 +65,16 @@ function home() {
           className="w-28 mx-auto mt-40 animate-bounce mdn:w-20 "
         />
       </section>
-      <GrillaConsignas/>
+      <div>
+        <h1 className="text-4xl text-white text-center">
+          Ejercicios sin base de datos
+        </h1>
+        <GrillaConsignas consignas={consignas}/>
+      </div>
+      <div>
+        <h1 className="text-4xl text-white text-center">Ejercicios con base de datos</h1>
+        <GrillaConsignas consignas={conbd}/>
+      </div>
     </main>
   );
 }

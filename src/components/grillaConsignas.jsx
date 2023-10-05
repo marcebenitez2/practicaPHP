@@ -2,9 +2,9 @@ import React from "react";
 import { consignas } from "../services/consignas";
 import { Link } from "wouter";
 
-function GrillaConsignas() {
+function GrillaConsignas({consignas}) {
   return (
-    <main className="grid w-full min-h-screen py-10 grid-cols-5 2xln:grid-cols-3 mdn:grid-cols-2 gap-y-6 gap-x-6 text-white font-semibold">
+    <main className="grid w-full  py-10 grid-cols-6 2xln:grid-cols-3 mdn:grid-cols-2 gap-y-6 gap-x-6 text-white font-semibold">
       {consignas.map((x) => (
         <Link href={`/ejercicio${x.id}`} key={x.id}>
           <div className="card" >

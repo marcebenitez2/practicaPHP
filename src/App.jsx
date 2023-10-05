@@ -7,6 +7,7 @@ import Ejercicio3 from './pages/ejercicio3'
 import Ejercicio4 from "./pages/ejercicio4";
 import Ejercicio5 from "./pages/ejercicio5";
 import Ejercicio6 from "./pages/ejercicio6";
+import Ejercicio7 from "./pages/ejercicio7";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/ejercicio4" component={Ejercicio4}/>
       <Route path="/ejercicio5" component={Ejercicio5}/>
       <Route path="/ejercicio6" component={Ejercicio6}/>
+      <Route path="/ejercicio7" component={Ejercicio7}/>
     </main>
   );
 }

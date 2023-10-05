@@ -11,7 +11,7 @@ export const consignas = [
       "3. Enviar a php el valor del input",
       "4. Configurar PHP para peticiones POST",
       "5. Realizar la funcion",
-      "6. Recibir en el front el resultado de la funcion"
+      "6. Recibir en el front el resultado de la funcion",
     ],
   },
   {
@@ -28,7 +28,7 @@ export const consignas = [
       "5. Realizar funciones en php y retornar cada valor",
       "6. Convertir respuestas en JSON",
       "7. Recibir JSON en el front",
-      "8. Mostarlo en pantalla"
+      "8. Mostarlo en pantalla",
     ],
   },
   {
@@ -45,7 +45,7 @@ export const consignas = [
       "5. Realizar funciones en php y retornar cada valor",
       "6. Convertir respuestas en JSON",
       "7. Recibir JSON en el front",
-      "8. Mostarlo en pantalla"
+      "8. Mostarlo en pantalla",
     ],
   },
   {
@@ -61,8 +61,7 @@ export const consignas = [
       "4. Operar con las 30 notas",
       "5. Convertir en JSON",
       "6. Recibirlo en el front",
-      "7. Mostarlo en pantalla"
-
+      "7. Mostarlo en pantalla",
     ],
   },
   {
@@ -75,7 +74,7 @@ export const consignas = [
       "1. Realizar el front",
       "2. Realizar peticion",
       "3. Realizar las funciones en php y retornarlas como un JSON",
-      "4. Recibirla y mostrarla en el front"
+      "4. Recibirla y mostrarla en el front",
     ],
   },
   {
@@ -83,53 +82,44 @@ export const consignas = [
     titulo: "EJercicio 6/Practica 4",
     consigna:
       "Escribir un programa en HTML que pida dos números. El primero será un número entero que indica el número en base 10 (decimal) que vamos a querer convertir. El segundo número será la base (validar que sea entero de 1 a 9) a la que queremos convertir el primer número ingresado. Luego llamar a un programa php con el método POST, que convierta el número en base 10, a la base que indica el segundo número.",
-    resolucion: [
-     
-    ],
+      resumen:"Elevar un numero a su base",
+    resolucion: [],
   },
+];
+
+export const conbd = [
   {
     id: 7,
     titulo: "Sin hacer",
-    consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
-    resolucion: [
-
-    ],
+    consigna:"Una empresa tiene una sucursal en cada localidad diferente. No en todas las localidades tiene sucursal, pero en las que tiene, hay sólo una. Se dedica a realizar viajes periódicos entre cada sucursal llevando materiales. Para ello, cuenta con una base de datos donde asienta datos de los viajes realizados.",
+    resolucion: [],
   },
   {
     id: 8,
     titulo: "Sin hacer",
     consigna:
       "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
-    resolucion: [
-
-    ],
+    resolucion: [],
   },
   {
     id: 9,
     titulo: "Sin hacer",
     consigna:
       "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
-    resolucion: [
-    
-    ],
+    resolucion: [],
   },
   {
     id: 10,
     titulo: "Sin hacer",
     consigna:
       "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
-    resolucion: [
-
-    ],
+    resolucion: [],
   },
   {
     id: 11,
     titulo: "Sin hacer",
     consigna:
       "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
-    resolucion: [
-  
-    ],
+    resolucion: [],
   },
 ];
