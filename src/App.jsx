@@ -6,7 +6,8 @@ import Ejercicio2 from "./pages/ejercicio2";
 import Ejercicio3 from './pages/ejercicio3'
 import Ejercicio4 from "./pages/ejercicio4";
 import Ejercicio5 from "./pages/ejercicio5";
-// List para hostear
+import Ejercicio6 from "./pages/ejercicio6";
+
 function App() {
   return (
     <main>
@@ -16,6 +17,7 @@ function App() {
       <Route path="/ejercicio3" component={Ejercicio3}/>
       <Route path="/ejercicio4" component={Ejercicio4}/>
       <Route path="/ejercicio5" component={Ejercicio5}/>
+      <Route path="/ejercicio6" component={Ejercicio6}/>
     </main>
   );
 }

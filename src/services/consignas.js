@@ -80,9 +80,9 @@ export const consignas = [
   },
   {
     id: 6,
-    titulo: "Sin hacer",
+    titulo: "EJercicio 6/Practica 4",
     consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+      "Escribir un programa en HTML que pida dos números. El primero será un número entero que indica el número en base 10 (decimal) que vamos a querer convertir. El segundo número será la base (validar que sea entero de 1 a 9) a la que queremos convertir el primer número ingresado. Luego llamar a un programa php con el método POST, que convierta el número en base 10, a la base que indica el segundo número.",
     resolucion: [
      
     ],
