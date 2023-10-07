@@ -1,22 +1,43 @@
 import React from "react";
 import { useState } from "react";
 
+
+const localidades = [
+  { id: 1, nombre: "Rafaela" },
+  { id: 2, nombre: "Rosario" },
+  { id: 3, nombre: "Ramallo" },
+  { id: 4, nombre: "Chascomus" },
+  { id: 5, nombre: "Bigand" },
+  { id: 6, nombre: "San Nicolas" },
+  { id: 7, nombre: "Buenos Aires" },
+]
+
 function Solucion7() {
   const [viajes, setViajes] = useState([]);
   const [localidad, setLocalidad] = useState("Rafaela");
   const [mes, setMes] = useState(5);
   const [anio, setAnio] = useState(2022);
 
-    const calcular = async () => {
-        try{
-            const res = await fetch()
-            const data = await res.json()
-            setViajes(data)
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
+  const calcular = async () => {
+    console.log(localidad, mes, anio)
+    // try {
+    //   const response = await fetch('',{
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       localidad,
+    //       mes,
+    //       anio,
+    //     }),
+    //   });
+    //   const json = await response.json();
+    //   setViajes(json);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
 
   return (
     <main className="w-2/5 flex flex-col text-white gap-10 pt-6">
@@ -63,24 +84,26 @@ function Solucion7() {
             onChange={(e) => setAnio(e.target.value)}
           />
         </div>
-        <button className=" text-2xl text-cyan-400" onClick={calcular}>Calcular</button>
+        <button className=" text-2xl text-cyan-400" onClick={calcular}>
+          Calcular
+        </button>
       </div>
       <aside>
         <table className="w-full">
-            <thead>
-                <tr>
-                <th>Localidad</th>
-                <th>Kilos</th>
-                </tr>
-            </thead>
-            <tbody>
-                {viajes.map((x) => (
-                <tr>
-                    <td>{x.localidad}</td>
-                    <td>{x.kilos}</td>
-                </tr>
-                ))}
-            </tbody>
+          <thead>
+            <tr>
+              <th>Localidad</th>
+              <th>Kilos</th>
+            </tr>
+          </thead>
+          <tbody>
+            {viajes.map((x) => (
+              <tr>
+                <td>{x.localidad}</td>
+                <td>{x.kilos}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </aside>
     </main>
