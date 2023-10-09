@@ -27,7 +27,7 @@ if ($conn->connect_error) {
 
 // Realiza la consulta
 
-$sql = "SELECT LocOrigen, LocDestino, SUM(CASE WHEN LocDestino = 1 THEN Cantkg ELSE -Cantkg END) AS KilosAcumulados FROM Viajes WHERE (LocOrigen = $localidad OR LocDestino = $localidad) AND MONTH(FecViaje) = $mes AND YEAR(FecViaje) = $anio GROUP BY LocOrigen, LocDestino;";
+$sql = "SELECT * FROM Viajes WHERE (LocOrigen = $localidad OR LocDestino = $localidad) AND MONTH(FecViaje) = $mes AND YEAR(FecViaje) = $anio GROUP BY LocOrigen, LocDestino;";
 
 $result = $conn->query($sql);
 

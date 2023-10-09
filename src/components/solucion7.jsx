@@ -16,6 +16,7 @@ function Solucion7() {
   const [localidad, setLocalidad] = useState(1);
   const [mes, setMes] = useState(5);
   const [anio, setAnio] = useState(2022);
+  const [total, setTotal] = useState(0)
 
   const calcular = async () => {
     const info = {
@@ -37,6 +38,7 @@ function Solucion7() {
         const json = await response.json();
         console.log(json);
         setViajes(json);
+        setTotal(json.reduce((acc, x) => acc + parseInt(x.cantKg), 0))
       } else {
         console.log("Error en la solicitud HTTP:", response.status);
       }
@@ -95,25 +97,28 @@ function Solucion7() {
         </button>
       </div>
       <aside>
-        <table className="w-full">
-          <thead>
-            <tr>
-              <th>Origen</th>
-              <th>Destino</th>
-              <th>Kilos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {viajes.map((x) => (
-              <tr>
-                <td>{localidades[parseInt(x.LocOrigen)-1].nombre}</td>
-                <td>{localidades[parseInt(x.LocDestino)-1].nombre}</td>
-                <td>{x.kilos}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </aside>
+  <table className="w-full text-center">
+    <thead>
+      <tr className="text-cyan-400">
+        <th>Dia</th>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Kilos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {viajes.map((x, index) => (
+        <tr key={index}>
+          <td>{x.fecViaje}</td>
+          <td>{localidades[parseInt(x.locOrigen) - 1].nombre}</td>
+          <td>{localidades[parseInt(x.locDestino) - 1].nombre}</td>
+          <td>{x.cantKg}</td>
+        </tr>
+      ))}
+    </tbody>
+    <p className="mt-8">TOTAL: {total}</p>
+  </table>
+</aside>
     </main>
   );
 }

@@ -90,22 +90,22 @@ export const consignas = [
 export const conbd = [
   {
     id: 7,
-    titulo: "Sin hacer",
+    titulo: "Viajes y sucursales",
     consigna:"Una empresa tiene una sucursal en cada localidad diferente. No en todas las localidades tiene sucursal, pero en las que tiene, hay sólo una. Se dedica a realizar viajes periódicos entre cada sucursal llevando materiales. Para ello, cuenta con una base de datos donde asienta datos de los viajes realizados.",
     resolucion: [],
   },
   {
     id: 8,
-    titulo: "Sin hacer",
+    titulo: "Consecionaria",
     consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+      "Desarrollar un sitio en PHP donde muestre el capital acumulado por la concesionaria por cada marca de auto. Aplicar estilos en archivo aparte. Mostrar los resultados en una tabla y con un link para volver a ejecutar el programa.",
     resolucion: [],
   },
   {
     id: 9,
-    titulo: "Sin hacer",
+    titulo: "Escuela",
     consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+      "Realizar una página web, en HTML, con un solo botón que diga procesar. Al hacer click sobre el mismo debe llamar a una página PHP que dispare el programa.",
     resolucion: [],
   },
   {
