@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 
-
 const localidades = [
   { id: 1, nombre: "Rafaela" },
   { id: 2, nombre: "Rosario" },
@@ -10,34 +9,42 @@ const localidades = [
   { id: 5, nombre: "Bigand" },
   { id: 6, nombre: "San Nicolas" },
   { id: 7, nombre: "Buenos Aires" },
-]
+];
 
 function Solucion7() {
   const [viajes, setViajes] = useState([]);
-  const [localidad, setLocalidad] = useState("Rafaela");
+  const [localidad, setLocalidad] = useState(1);
   const [mes, setMes] = useState(5);
   const [anio, setAnio] = useState(2022);
 
   const calcular = async () => {
-    console.log(localidad, mes, anio)
-    // try {
-    //   const response = await fetch('',{
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       localidad,
-    //       mes,
-    //       anio,
-    //     }),
-    //   });
-    //   const json = await response.json();
-    //   setViajes(json);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    const info = {
+      localidad: localidad,
+      mes: mes,
+      anio: anio
+    };
+  
+    try {
+      const response = await fetch('http://localhost/ejercicio7.php', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+  
+      if (response.ok) {
+        const json = await response.json();
+        console.log(json);
+        setViajes(json);
+      } else {
+        console.log("Error en la solicitud HTTP:", response.status);
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
   };
+  
 
   return (
     <main className="w-2/5 flex flex-col text-white gap-10 pt-6">
@@ -46,13 +53,12 @@ function Solucion7() {
           <label>Localidad</label>
           <select
             value={localidad}
-            onChange={(e) => setLocalidad(e.target.value)}
+            onChange={(e) => setLocalidad(Number(e.target.value))}
             className="text-black"
           >
-            <option value="Rafaela">Rafaela</option>
-            <option value="Rosario">Rosario</option>
-            <option value="Buenos Aires">Buenos Aires</option>
-            <option value="Cordoba">Cordoba</option>
+            {localidades.map((x) => (
+              <option value={x.id}>{x.nombre}</option>
+            ))}
           </select>
         </div>
         <div className="flex flex-col">
@@ -92,14 +98,16 @@ function Solucion7() {
         <table className="w-full">
           <thead>
             <tr>
-              <th>Localidad</th>
+              <th>Origen</th>
+              <th>Destino</th>
               <th>Kilos</th>
             </tr>
           </thead>
           <tbody>
             {viajes.map((x) => (
               <tr>
-                <td>{x.localidad}</td>
+                <td>{localidades[parseInt(x.LocOrigen)-1].nombre}</td>
+                <td>{localidades[parseInt(x.LocDestino)-1].nombre}</td>
                 <td>{x.kilos}</td>
               </tr>
             ))}
@@ -112,30 +120,3 @@ function Solucion7() {
 
 export default Solucion7;
 
-/**
- * Una empresa tiene una sucursal en cada localidad diferente.
-No en todas las localidades tiene sucursal, pero en las que
-tiene, hay sólo una. Se dedica a realizar viajes periódicos
-entre cada sucursal llevando materiales. Para ello, cuenta
-con una base de datos donde asienta datos de los viajes
-realizados.
-Base: TRAFICO.MDB
-Tablas:
-Ciudades contiene un registro por cada localidad en que la
-empresa realiza envíos.
-CodLoc (entero): código de la localidad.
-NomLoc (texto 30): nombre de la localidad.
-Viajes contiene un registro por cada viaje realizado.
-LocOrigen (entero): código de localidad origen del viaje.
-LocDestino (entero): código de localidad destino del viaje.
-Cantkg (simple): cantidad de kilos transportados en el
-viaje.
-FecViaje (dd/mm/aaaa): Fecha del viaje.
-Realizar una aplicación que solicite una localidad, un mes
-y un año y liste todos los viajes que tuvieron como origen
-o destino esa localidad, acumulando la cantidad de kilos
-transportados, en el mes y año ingresados cuando la
-localidad sea destino y descuente los kilos cuando la
-localidad es origen.
-
- */
