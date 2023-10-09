@@ -96,7 +96,7 @@ export const conbd = [
   },
   {
     id: 8,
-    titulo: "Consecionaria",
+    titulo: "Sin hacer",
     consigna:
       "Desarrollar un sitio en PHP donde muestre el capital acumulado por la concesionaria por cada marca de auto. Aplicar estilos en archivo aparte. Mostrar los resultados en una tabla y con un link para volver a ejecutar el programa.",
     resolucion: [],
@@ -112,7 +112,7 @@ export const conbd = [
     id: 10,
     titulo: "Sin hacer",
     consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+      "Ingresando por teclado un número de empleado, muestre el nombre del mismo junto a la cantidad total de horas trabajadas y el importe neto cobrado por el total de horas trabajadas. Luego de mostrado el dato se debe actualizar el archivo para que en el campo “actualizado” diga “SI”. Si en el campo “actualizado”, antes de hacer el proceso, dice “SI” no se debe hacer nada.",
     resolucion: [],
   },
   {
