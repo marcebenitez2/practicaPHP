@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 
 function Solucion10() {
@@ -6,7 +7,8 @@ function Solucion10() {
     const [empleado, setEmpleado] = useState(null)
 
     const procesar = async () => {
-        console.log(JSON.stringify({ empleado: parseInt(empleado) }))
+
+        setRespuesta([])
         try {
             const response = await fetch('http://localhost/ejercicio10.php',{
                 method: 'POST',
@@ -17,7 +19,13 @@ function Solucion10() {
             })
             const data = await response.json()
             console.log(data)
-            setRespuesta(data)
+            if (data.length === 0) {
+                alert("El empleado seleccionado no tiene registros")
+            } else if (data === "Trabajador ya actualizado") {
+                alert(data)
+            } else {
+                setRespuesta(data)
+            }
         }
         catch (error) {
             console.log(error)
@@ -31,7 +39,9 @@ function Solucion10() {
                 <input onChange={(e)=>setEmpleado(e.target.value)} type='number' className='bg-transparent border text-white px-4'/>
                 <button className='text-cyan-400 font-semibold' onClick={procesar}>Procesar</button>
             </div>
-            <p className='text-center'><span className='text-cyan-400 font-semibold'>IMPORTANTE:</span> Estan cargados desde el 101 hasta el 106</p>
+            <p className='text-center'><span className='text-cyan-400 font-semibold'>IMPORTANTE:</span> Estan registrados los trabajadores desde el 101 hasta el 106</p>
+
+            
             <table className='w-full text-center'>
                 <thead>
                     <tr>
@@ -50,12 +60,13 @@ function Solucion10() {
                             <td>{x.Numero}</td>
                             <td>{x.Nombre}</td>
                             <td>{x.Horas}</td>
-                            <td>{x.Importe}</td>
+                            <td>{x.Importe.toFixed(2)}</td>
                             <td>{x.Actualizado}</td>
                         </tr>
                     ))}
                </tbody>
             </table>
+           
         </main>
     )
 }

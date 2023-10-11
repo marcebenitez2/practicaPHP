@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Si la solicitud es OPTIONS devolver 0
+// Si la solicitud es OPTIONS, devolver 0
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {    
     return 0;    
 }
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json_data = file_get_contents("php://input");
     $data = json_decode($json_data);
-
+  
     if (isset($data->empleado)) {
         $numero_empleado = $data->empleado;
 
@@ -31,11 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $escaped_numero_empleado = $conn->real_escape_string($numero_empleado);
 
-        $sql = "SELECT e.Nombre, t.FechaTrabajo, SUM(t.CantidadHorasTrabajadas) AS TotalHoras, e.ValorHora
+        $sql = "SELECT e.Nombre, t.FechaTrabajo, SUM(t.CantidadHorasTrabajadas) AS TotalHoras, e.ValorHora, e.Actualizado
                 FROM EMPLEADO e
                 JOIN TRABAJO t ON e.NumeroDeEmpleado = t.NumeroDeEmpleado
                 WHERE e.NumeroDeEmpleado = $escaped_numero_empleado
-                GROUP BY e.Nombre, t.FechaTrabajo, e.ValorHora";
+                GROUP BY e.Nombre, t.FechaTrabajo, e.ValorHora, e.Actualizado";
 
         $result = $conn->query($sql);
 
@@ -50,7 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $valor_hora = $row['ValorHora'];
                 $importe = $total_horas * $valor_hora;
                 $importe_total += $importe;
-
+                $actualizado = $row['Actualizado']; // Obtener el valor de "Actualizado"
+                
+                // Verificar si el trabajador ya ha sido actualizado
+                if ($actualizado == 'SI') {
+                    echo json_encode('Trabajador ya actualizado');
+                    exit();
+                }
+                
+                // Si no ha sido actualizado, enviar los detalles al frontend
                 $respuesta[] = array(
                     'Numero' => $numero_empleado,
                     'Nombre' => $nombre,

@@ -10,73 +10,61 @@ $dbname = "telefonia";
 // Crear una conexión a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar la conexión
 if ($conn->connect_error) {
-    die("La conexión a la base de datos falló: " . $conn->connect_error);
+    die("Error en la conexión a la base de datos: " . $conn->connect_error);
 }
 
-// Consulta SQL para obtener el titular que más consumió en Datos
-$sql_datos = "SELECT TITULARES.nomt, SUM(CONSUMOS.cancon) AS total_consumo
-             FROM TITULARES
-             JOIN CONSUMOS ON TITULARES.doct = CONSUMOS.doct
-             WHERE CONSUMOS.concon = 'D'
-             GROUP BY TITULARES.doct
-             ORDER BY total_consumo DESC
-             LIMIT 1";
+// Consulta SQL para obtener al titular que más consumió en concepto de Datos
+$query_datos = "SELECT t.nomtit AS nombre, SUM(c.cancon) AS consumo_datos
+               FROM titulares t
+               INNER JOIN consumos c ON t.numlin = c.numlin
+               WHERE c.concon = 'D'
+               GROUP BY t.nomtit
+               ORDER BY consumo_datos DESC
+               LIMIT 1";
 
-$result_datos = $conn->query($sql_datos);
+// Consulta SQL para obtener al titular que más consumió en concepto de Telefonía
+$query_telefonia = "SELECT t.nomtit AS nombre, SUM(c.cancon) AS consumo_telefonia
+                   FROM titulares t
+                   INNER JOIN consumos c ON t.numlin = c.numlin
+                   WHERE c.concon = 'T'
+                   GROUP BY t.nomtit
+                   ORDER BY consumo_telefonia DESC
+                   LIMIT 1";
+
+// Consulta SQL para obtener al titular que más consumió en general
+$query_general = "SELECT t.nomtit AS nombre, SUM(c.cancon) AS consumo_general
+                 FROM titulares t
+                 INNER JOIN consumos c ON t.numlin = c.numlin
+                 GROUP BY t.nomtit
+                 ORDER BY consumo_general DESC
+                 LIMIT 1";
+
+$result_datos = $conn->query($query_datos);
+$result_telefonia = $conn->query($query_telefonia);
+$result_general = $conn->query($query_general);
+
+$response = array();
 
 if ($result_datos->num_rows > 0) {
     $row_datos = $result_datos->fetch_assoc();
-    $titular_datos = $row_datos["nomt"];
-    $total_consumo_datos = $row_datos["total_consumo"];
-} else {
-    $titular_datos = "N/A";
-    $total_consumo_datos = 0;
+    $response[] = $row_datos["nombre"] . " fue quien más consumió, en $, en datos.";
+    // $response[] = $row_datos["nombre"] . " fue quien más consumió, en $" . $row_datos["consumo_datos"] . ", en datos.";
 }
-
-// Consulta SQL para obtener el titular que más consumió en Telefonía
-$sql_telefonia = "SELECT TITULARES.nomt, SUM(CONSUMOS.cancon) AS total_consumo
-                FROM TITULARES
-                JOIN CONSUMOS ON TITULARES.doct = CONSUMOS.doct
-                WHERE CONSUMOS.concon = 'T'
-                GROUP BY TITULARES.doct
-                ORDER BY total_consumo DESC
-                LIMIT 1";
-
-$result_telefonia = $conn->query($sql_telefonia);
 
 if ($result_telefonia->num_rows > 0) {
     $row_telefonia = $result_telefonia->fetch_assoc();
-    $titular_telefonia = $row_telefonia["nomt"];
-    $total_consumo_telefonia = $row_telefonia["total_consumo"];
-} else {
-    $titular_telefonia = "N/A";
-    $total_consumo_telefonia = 0;
+    $response[] = $row_telefonia["nombre"] . " fue quien más consumió, en $, en telefonía.";
+    // $response[] = $row_telefonia["nombre"] . " fue quien más consumió, en $" . $row_telefonia["consumo_telefonia"] . ", en telefonía.";
 }
 
-// Calcular el titular que más consumió en general
-if ($total_consumo_datos > $total_consumo_telefonia) {
-    $titular_general = $titular_datos;
-    $total_consumo_general = $total_consumo_datos;
-} else {
-    $titular_general = $titular_telefonia;
-    $total_consumo_general = $total_consumo_telefonia;
+if ($result_general->num_rows > 0) {
+    $row_general = $result_general->fetch_assoc();
+    $response[] = $row_general["nombre"] . " fue quien más consumió, en $, en general.";
+    // $response[] = $row_general["nombre"] . " fue quien más consumió, en $" . $row_general["consumo_general"] . ", en general.";
 }
 
-// Crear un arreglo con los resultados
-$resultado = array(
-    "titular_datos" => $titular_datos,
-    "total_consumo_datos" => $total_consumo_datos,
-    "titular_telefonia" => $titular_telefonia,
-    "total_consumo_telefonia" => $total_consumo_telefonia,
-    "titular_general" => $titular_general,
-    "total_consumo_general" => $total_consumo_general
-);
+echo json_encode($response);
 
-// Enviar los resultados al frontend como JSON
-echo json_encode($resultado);
-
-// Cerrar la conexión a la base de datos
 $conn->close();
 ?>

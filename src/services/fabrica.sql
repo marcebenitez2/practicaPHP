@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 01:44:19
+-- Tiempo de generación: 11-10-2023 a las 23:51:18
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -42,7 +42,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`Nombre`, `Documento`, `EstadoCivil`, `CantidadDeHijos`, `NumeroDeEmpleado`, `ValorHora`, `Actualizado`) VALUES
-('Juan Pérez', '12345678', 'Soltero', 0, 101, 15, 'SI'),
+('Juan Pérez', '12345678', 'Soltero', 0, 101, 15, 'NO'),
 ('María López', '87654321', 'Casado', 2, 102, 14.5, 'NO'),
 ('Juan Pérez', '12345678', 'Soltero', 0, 103, 10.5, 'NO'),
 ('María García', '98765432', 'Casado', 2, 104, 12.3, 'NO'),
@@ -67,7 +67,13 @@ CREATE TABLE `trabajo` (
 
 INSERT INTO `trabajo` (`NumeroDeEmpleado`, `FechaTrabajo`, `CantidadHorasTrabajadas`) VALUES
 (101, '2023-10-09 08:00:00', 8),
-(102, '2023-10-09 09:00:00', 7);
+(102, '2023-10-09 09:00:00', 7),
+(101, '2023-10-10 08:00:00', 7),
+(102, '2023-10-11 09:00:00', 6),
+(103, '2023-10-12 10:00:00', 8),
+(104, '2023-10-13 08:00:00', 7),
+(105, '2023-10-14 09:00:00', 6),
+(106, '2023-10-15 10:00:00', 8);
 
 --
 -- Índices para tablas volcadas
