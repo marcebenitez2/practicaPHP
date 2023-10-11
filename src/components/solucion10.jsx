@@ -5,14 +5,33 @@ function Solucion10() {
     const [respuesta, setRespuesta] = useState([])
     const [empleado, setEmpleado] = useState(null)
 
+    const procesar = async () => {
+        console.log(JSON.stringify({ empleado: parseInt(empleado) }))
+        try {
+            const response = await fetch('http://localhost/ejercicio10.php',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ empleado: parseInt(empleado) }) // Enviar el número de empleado como un objeto con la clave "empleado"
+            })
+            const data = await response.json()
+            console.log(data)
+            setRespuesta(data)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <main className='flex flex-col w-1/2 text-white mt-8 gap-8'>
             <div className='flex flex-col gap-1 items-center'>
                 <label>Ingrese el numero de empleado:</label>
                 <input onChange={(e)=>setEmpleado(e.target.value)} type='number' className='bg-transparent border text-white px-4'/>
-                <button className='text-cyan-400 font-semibold'>Procesar</button>
+                <button className='text-cyan-400 font-semibold' onClick={procesar}>Procesar</button>
             </div>
+            <p className='text-center'><span className='text-cyan-400 font-semibold'>IMPORTANTE:</span> Estan cargados desde el 101 hasta el 106</p>
             <table className='w-full text-center'>
                 <thead>
                     <tr>
@@ -25,7 +44,16 @@ function Solucion10() {
                 </thead>
                
                <tbody>
-                {   }
+
+                    {respuesta.map((x)=>(
+                        <tr key={x.numero}>
+                            <td>{x.Numero}</td>
+                            <td>{x.Nombre}</td>
+                            <td>{x.Horas}</td>
+                            <td>{x.Importe}</td>
+                            <td>{x.Actualizado}</td>
+                        </tr>
+                    ))}
                </tbody>
             </table>
         </main>
