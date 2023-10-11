@@ -13,6 +13,7 @@ import Ejercicio9 from "./pages/ejercicio9";
 import Ejercicio10 from "./pages/ejercicio10";
 import Ejercicio11 from "./pages/ejercicio11";
 import Ejercicio12 from "./pages/ejercicio12";
+import Ejercicio13 from "./pages/ejercicio13";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/ejercicio10" component={Ejercicio10}/>
       <Route path="/ejercicio11" component={Ejercicio11}/>
       <Route path="/ejercicio12" component={Ejercicio12}/>
+      <Route path="/ejercicio13" component={Ejercicio13}/>
       
     </main>
   );

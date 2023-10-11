@@ -129,4 +129,11 @@ export const conbd = [
       "Se requiere un aplicativo en PHP cuya interface sea un botón que al hacer click realice un listado",
     resolucion: [],
   },
+  {
+    id: 13,
+    titulo: "Callcenter",
+    consigna:
+      "Realizar una web en PHP con la base anterior en MySQL y ulizando HTML, CSS y Javascript, para resolver la siguiente situación: 1. En la web debe haber dos botones: a. El primer botón debe invocar a una web que actualice los campos Age_candadatendida y Age_candadrecibida de la tabla agentes a parr de las otras dos tablas y que muestre un listado final con los nombres de los agentes, sólo los acvos, que tengan más candad de llamadas recibidas que realizadas. b. El segundo botón debe invocar a una página que permita seleccionar un agente y, si éste está acvo, muestre el porcentaje de llamadas atendidas de ese agente respecto al total de agentes.",
+    resolucion: [],
+  },
 ];
