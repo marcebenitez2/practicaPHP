@@ -122,4 +122,11 @@ export const conbd = [
       "Cada tular ene asignada una o más líneas telefónicas. Hacer un programa en PHP que permita decir quién fue el tular que más consumió (en $) en concepto de Datos, en concepto de Telefonía, y por ambos.",
     resolucion: [],
   },
+  {
+    id: 12,
+    titulo: "Herramientas",
+    consigna:
+      "Se requiere un aplicativo en PHP cuya interface sea un botón que al hacer click realice un listado",
+    resolucion: [],
+  },
 ];
