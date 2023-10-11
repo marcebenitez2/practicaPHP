@@ -119,7 +119,7 @@ export const conbd = [
     id: 11,
     titulo: "Telefonia",
     consigna:
-      "Crearemos una tabla de valores de seno y coseno de 0 a 2 en incrementos de 0.01. Los valores negativos que resulten los queremos mostrar en rojo, y los valores positivos en azul. Un color diferente cada fila que se imprima.",
+      "Cada tular ene asignada una o más líneas telefónicas. Hacer un programa en PHP que permita decir quién fue el tular que más consumió (en $) en concepto de Datos, en concepto de Telefonía, y por ambos.",
     resolucion: [],
   },
 ];

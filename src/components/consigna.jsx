@@ -3,7 +3,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "wouter";
 
 function Consigna({ x }) {
-  console.log(x);
+
   return (
     <section className="pt-20 text-white flex flex-col gap-20">
       <Link href="/">
