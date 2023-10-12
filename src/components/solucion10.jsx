@@ -20,9 +20,9 @@ function Solucion10() {
             const data = await response.json()
             console.log(data)
             if (data.length === 0) {
-                alert("El empleado seleccionado no tiene registros")
+                console.log("El empleado seleccionado no tiene registros")
             } else if (data === "Trabajador ya actualizado") {
-                alert(data)
+                console.log(data)
             } else {
                 setRespuesta(data)
             }
