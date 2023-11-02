@@ -27,7 +27,7 @@ if ($conn->connect_error) {
 
 // Realiza la consulta
 
-$sql = "SELECT * FROM Viajes WHERE (LocOrigen = $localidad OR LocDestino = $localidad) AND MONTH(FecViaje) = $mes AND YEAR(FecViaje) = $anio GROUP BY LocOrigen, LocDestino;";
+$sql = "SELECT * FROM Viajes WHERE (LocOrigen = $localidad OR LocDestino = $localidad) AND MONTH(FecViaje) = $mes AND YEAR(FecViaje) = $anio";
 
 $result = $conn->query($sql);
 

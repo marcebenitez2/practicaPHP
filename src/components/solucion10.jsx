@@ -54,7 +54,6 @@ function Solucion10() {
                 </thead>
                
                <tbody>
-
                     {respuesta.map((x)=>(
                         <tr key={x.numero}>
                             <td>{x.Numero}</td>

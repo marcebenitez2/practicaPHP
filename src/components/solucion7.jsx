@@ -11,7 +11,7 @@ const localidades = [
   { id: 7, nombre: "Buenos Aires" },
 ];
 
-const meses= [
+const meses = [
   { id: 1, nombre: "Enero" },
   { id: 2, nombre: "Febrero" },
   { id: 3, nombre: "Marzo" },
@@ -24,7 +24,7 @@ const meses= [
   { id: 10, nombre: "Octubre" },
   { id: 11, nombre: "Noviembre" },
   { id: 12, nombre: "Diciembre" },
-]
+];
 
 function Solucion7() {
   const [viajes, setViajes] = useState([]);
@@ -116,7 +116,9 @@ function Solucion7() {
             <p>
               Localidad Origen o destino: {localidades[localidad - 1].nombre}
             </p>
-            <p>En el mes de: {meses[mes - 1].nombre} {anio}</p>
+            <p>
+              En el mes de: {meses[mes - 1].nombre} {anio}
+            </p>
           </div>
         ) : null}
         <table className="w-full text-center">
@@ -131,7 +133,7 @@ function Solucion7() {
           <tbody>
             {viajes.map((x, index) => (
               <tr key={index}>
-                <td>{x.fecViaje}</td>
+                <td>{parseInt(x.fecViaje.split("-")[2], 10)}</td>
                 <td>
                   {localidades[parseInt(x.locOrigen) - 1].id === localidad
                     ? " "
@@ -145,8 +147,8 @@ function Solucion7() {
                 <td>{x.cantKg}</td>
               </tr>
             ))}
+            <p className="mt-8">TOTAL: {total} kg</p>
           </tbody>
-          <p className="mt-8">TOTAL: {total} kg</p>
         </table>
       </aside>
     </main>
