@@ -81,7 +81,7 @@ function Solucion7() {
               className="text-black"
             >
               {localidades.map((x) => (
-                <option value={x.id}>{x.nombre}</option>
+                <option value={x.codLoc}>{x.nomLoc}</option>
               ))}
             </select>
           </div>
