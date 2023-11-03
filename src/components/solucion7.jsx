@@ -31,7 +31,7 @@ function Solucion7() {
 
   async function fetchLocalidades() {
     try {
-      const response = await fetch()
+      const response = await fetch("http://localhost/ejercicio7-1.php")
       const respuesta = await response.json()
       console.log(respuesta)
       return respuesta
