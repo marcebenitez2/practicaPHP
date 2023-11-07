@@ -1,11 +1,12 @@
 <?php
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "concesionaria";
+$dbname = "trafico";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -15,24 +16,19 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Consulta SQL para calcular el capital acumulado por marca
-$sql = "SELECT Marca, SUM(PrecioVenta) AS CapitalAcumulado FROM AUTOS GROUP BY Marca";
+$sql = "SELECT * FROM ciudades";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $autos = array();
+    $ciudades = array();
     while ($row = $result->fetch_assoc()) {
-        $autos[] = $row;
+        $ciudades[] = $row;
     }
-    echo json_encode($autos);
+    echo json_encode($ciudades);
 } else {
     echo json_encode(array("message" => "No se encontraron resultados."));
 }
 
-// Cerrar la conexión a la base de datos
 $conn->close();
 ?>
-
-
-

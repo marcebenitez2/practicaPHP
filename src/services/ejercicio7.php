@@ -27,7 +27,26 @@ if ($conn->connect_error) {
 
 // Realiza la consulta
 
-$sql = "SELECT * FROM Viajes WHERE (LocOrigen = $localidad OR LocDestino = $localidad) AND MONTH(FecViaje) = $mes AND YEAR(FecViaje) = $anio";
+$sql = "SELECT 
+            COALESCE(LOC1.nomLoc, LOC2.nomLoc) AS locOrigen, 
+            COALESCE(LOC2.nomLoc, LOC1.nomLoc) AS locDestino, 
+            ROUND(
+                CASE
+                    WHEN V.LocOrigen = $localidad THEN -V.cantKg
+                    WHEN V.LocDestino = $localidad THEN V.cantKg
+                    ELSE V.cantKg
+                END, 2
+            ) AS cantKg, 
+            V.fecViaje 
+        FROM Viajes V
+        LEFT JOIN Ciudades LOC1 ON V.LocOrigen = LOC1.codLoc
+        LEFT JOIN Ciudades LOC2 ON V.LocDestino = LOC2.codLoc
+        WHERE (V.LocOrigen = $localidad OR V.LocDestino = $localidad) 
+        AND MONTH(V.FecViaje) = $mes 
+        AND YEAR(V.FecViaje) = $anio";
+
+
+
 
 $result = $conn->query($sql);
 

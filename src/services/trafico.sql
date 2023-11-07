@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2023 a las 16:59:10
+-- Tiempo de generación: 07-11-2023 a las 15:06:16
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -43,7 +43,8 @@ INSERT INTO `ciudades` (`codLoc`, `nomLoc`) VALUES
 (4, 'Chascomus'),
 (5, 'Bigand'),
 (6, 'San Nicolas'),
-(7, 'Chascomus');
+(7, 'Chascomus'),
+(8, 'Perez');
 
 -- --------------------------------------------------------
 
@@ -63,12 +64,13 @@ CREATE TABLE `viajes` (
 --
 
 INSERT INTO `viajes` (`locOrigen`, `locDestino`, `cantKg`, `fecViaje`) VALUES
-(1, 2, -1254.3, '2022-05-01'),
+(1, 2, 1254.3, '2022-05-01'),
 (3, 1, 999, '2022-05-03'),
-(1, 4, -5642.25, '2022-05-05'),
-(1, 5, -2543.32, '2022-05-03'),
+(1, 4, 5642.25, '2022-05-05'),
+(1, 5, 2543.32, '2022-05-03'),
 (6, 1, 111, '2022-05-06'),
-(1, 4, -1758.33, '2022-05-01');
+(1, 4, 1758.33, '2022-05-01'),
+(1, 8, 200, '2022-05-03');
 
 --
 -- Índices para tablas volcadas
